@@ -71,7 +71,7 @@
 
 ### Following aspects can be taken into consideration to boost the solution in the future
 
-* Image from infrared camera
+* Image from infrared camera can be used
 * Add an outlier reduction approach like RANSAC on the hough lines
 
 [//]: # (Image References)
