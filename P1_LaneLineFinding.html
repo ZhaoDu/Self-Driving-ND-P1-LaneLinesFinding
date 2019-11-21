@@ -13194,7 +13194,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.image.AxesImage at 0x1d501073978&gt;</pre>
+<pre>&lt;matplotlib.image.AxesImage at 0x1f9c8462978&gt;</pre>
 </div>
 
 </div>
@@ -13450,7 +13450,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">draw_lines</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">lines</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
@@ -13477,11 +13477,12 @@ div#notebook {
         <span class="k">for</span> <span class="n">x1</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
             <span class="n">slope</span><span class="p">,</span> <span class="n">intercept</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">((</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">),(</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">ymin</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">),</span> <span class="n">ymin</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">slope</span><span class="p">)</span><span class="o">&lt;</span><span class="mf">0.5</span><span class="p">:</span> <span class="k">continue</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">slope</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">):</span>
                 <span class="n">left_slope_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">slope</span><span class="p">]</span>
                 <span class="n">left_y_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">]</span>
                 <span class="n">left_x_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">slope</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
                 <span class="n">right_slope_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">slope</span><span class="p">]</span>
                 <span class="n">right_y_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">y1</span><span class="p">,</span><span class="n">y2</span><span class="p">]</span>
                 <span class="n">right_x_all</span> <span class="o">+=</span> <span class="p">[</span><span class="n">x1</span><span class="p">,</span><span class="n">x2</span><span class="p">]</span>
@@ -13518,7 +13519,7 @@ div#notebook {
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Lane line&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">extrapolated_img</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;test_images_output/solidWhiteRight_lane.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;test_images_output/solidWhiteRight_lane.jpg&#39;</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -13558,7 +13559,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pipeline for lane line detection in video</span>
@@ -13609,7 +13610,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
@@ -13631,7 +13632,7 @@ div#notebook {
     <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Lane line&#39;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">extrapolated_img</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;test_images_output/&#39;</span><span class="o">+</span><span class="n">file</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">300</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;test_images_output/&#39;</span><span class="o">+</span><span class="n">file</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 
@@ -13746,7 +13747,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import everything needed to edit/save/watch video clips</span>
@@ -13761,7 +13762,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">white_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/solidWhiteRight.mp4&#39;</span>
@@ -13789,7 +13790,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   2%|▏         | 4/221 [00:00&lt;00:06, 33.52it/s, now=None]</pre>
+<pre>t:   1%|▏         | 3/221 [00:00&lt;00:08, 25.85it/s, now=None]</pre>
 </div>
 </div>
 
@@ -13824,7 +13825,7 @@ Moviepy - Writing video test_videos_output/solidWhiteRight.mp4
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Moviepy - Done !
 Moviepy - video ready test_videos_output/solidWhiteRight.mp4
-Wall time: 8.26 s
+Wall time: 8 s
 </pre>
 </div>
 </div>
@@ -13835,7 +13836,7 @@ Wall time: 8.26 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -13855,7 +13856,7 @@ Wall time: 8.26 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13882,7 +13883,7 @@ Wall time: 8.26 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">yellow_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/solidYellowLeft.mp4&#39;</span>
@@ -13910,7 +13911,7 @@ Wall time: 8.26 s
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   0%|          | 3/681 [00:00&lt;00:22, 29.78it/s, now=None]</pre>
+<pre>t:   1%|          | 4/681 [00:00&lt;00:19, 34.49it/s, now=None]</pre>
 </div>
 </div>
 
@@ -13945,7 +13946,7 @@ Moviepy - Writing video test_videos_output/solidYellowLeft.mp4
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Moviepy - Done !
 Moviepy - video ready test_videos_output/solidYellowLeft.mp4
-Wall time: 23.4 s
+Wall time: 22.7 s
 </pre>
 </div>
 </div>
@@ -13956,7 +13957,7 @@ Wall time: 23.4 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">HTML</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
@@ -13976,7 +13977,7 @@ Wall time: 23.4 s
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -14003,7 +14004,7 @@ Wall time: 23.4 s
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">challenge_output</span> <span class="o">=</span> <span class="s1">&#39;test_videos_output/challenge.mp4&#39;</span>
@@ -14031,7 +14032,7 @@ Wall time: 23.4 s
 
 
 <div class="output_subarea output_stream output_stderr output_text">
-<pre>t:   1%|          | 2/251 [00:00&lt;00:16, 15.12it/s, now=None]</pre>
+<pre>t:   0%|          | 0/251 [00:00&lt;?, ?it/s, now=None]</pre>
 </div>
 </div>
 
@@ -14066,7 +14067,7 @@ Moviepy - Writing video test_videos_output/challenge.mp4
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Moviepy - Done !
 Moviepy - video ready test_videos_output/challenge.mp4
-Wall time: 37.9 s
+Wall time: 40.8 s
 </pre>
 </div>
 </div>
@@ -14111,6 +14112,19 @@ Wall time: 37.9 s
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
 </div>
 </div>
 
