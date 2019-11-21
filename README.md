@@ -5,7 +5,7 @@
 ## Overview
 
 
-### This repo provides a pipeline of deteting lane lines from both image and video for autonomous vehicle(AV) using traditional computer vision techniques, *i.e.* Canny edge detection and hough transform approaches
+### This repo provides a pipeline of detecting lane lines from both image and video for autonomous vehicle(AV) using traditional computer vision techniques, *i.e.* Canny edge detection and hough transform approaches
 
 ## Pipeline
 
@@ -18,8 +18,8 @@
 ![alt text][image1]
 * Select region of interest(ROI) `cv2.fillPoly()`
 ![alt text][image2]
-* Define Hough transform parameters, apply Hough transform`cv2.HoughLinesP()` in ROI image to obtain lane line data.
-* Group the obtained lane line data into left and right,
+* Define Hough transform parameters, apply Hough transform`cv2.HoughLinesP()` in ROI selected image to obtain lane line data.
+* Group the obtained lane line data into left and right lane. Calculate the average slope and intercept of left and right group respectively. Draw the lane line based on the average slope, average intercept and coordinate rage of each group.
 * Generate the result by weighted summation of lane line image and the initial image
 ![alt text][image3]
 
@@ -68,8 +68,9 @@ Note: The above pipeline needs tuning parameters for images from differen source
 
 ### Following aspects can be taken into consideration to boost the solution in the future
 
-* Image from infrared camera can be used
+* Adaptive approaches can be used to boost the generalization of current solution,especially for ROI selection.
 * Add an outlier reduction approach like RANSAC on the hough lines
+* Curve functions, such as B-spine, might be useful to detect non-linear lanes in curvy roads.
 
 [//]: # (Image References)
 [image1]: ./test_images_output/solidWhiteRight_PreProcess.jpg
