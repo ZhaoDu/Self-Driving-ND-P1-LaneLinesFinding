@@ -4,11 +4,11 @@
 
 ## Overview
 
----
 
 ### This repo provides a pipeline of deteting lane lines from both image and video for autonomous vehicle(AV) using traditional computer vision techniques, *i.e.* Canny edge detection and hough transform approaches
 
 ## Pipeline
+
 
 ### My pipeline consisted of following steps
 
@@ -23,11 +23,10 @@
 * Generate the result by weighted summation of lane line image and the initial image
 ![alt text][image3]
 
-### Note: The above pipeline needs tuning parameters for images from differen sources,*i.e.* image size, boundaries of ROI, parameters for Canny edge detection and Hough transform, etc
-
----
+Note: The above pipeline needs tuning parameters for images from differen sources,*i.e.* image size, boundaries of ROI, parameters for Canny edge detection and Hough transform, etc
 
 ## Image Test Results
+
 
 ### Detection with extrapolated line drawn
 
@@ -38,9 +37,8 @@
 ![alt text][image8]
 ![alt text][image9]
 
----
-
 ## Video Test Results
+
 
 ### Test video 1: `solidWhiteRight.mp4`
 
@@ -54,9 +52,8 @@
 
 ![alt text][image12]
 
----
-
 ## Shortcomings
+
 
 ### There are a few shortcomings in current version of solution
 
@@ -65,9 +62,9 @@
 * Bad weather conditions (snow, rain, etc.) and poor light contions will greatly affect the result.
 * In this solution, the lane line detection result is based on the selection of ROI. It's acceptable to mask a ROI mannually for input videos comes from similar scenarios. However, complex and changeful scenarios might occur when AVs come into real road. This mannual selection approach undermines the accuracy and generalization of this solution.
 
----
 
 ## Future Work
+
 
 ### Following aspects can be taken into consideration to boost the solution in the future
 
